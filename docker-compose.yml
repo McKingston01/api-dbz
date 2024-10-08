@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  app_demo:
+    image: openjdk:17-jdk-slim
+    container_name: app_demo
+    ports:
+      - "8080:8080"  # Mapea el puerto 8080
+    environment:
+      DB_URL: jdbc:postgresql://localhost:5432/dbz?createDatabaseIfNotExist=true
+      DB_USERNAME: postgres
+      DB_PASSWORD: admin123
+    volumes:
+      - ./target/demo-0.0.1-SNAPSHOT.jar:/app/demo-0.0.1-SNAPSHOT.jar
+    working_dir: /app
+    command: ["java", "-jar", "demo-0.0.1-SNAPSHOT.jar"]
+    restart: always
+    depends_on:
+      postgres_db:
+        condition: service_healthy
+
+  postgres_db:
+    image: postgres:15
+    container_name: postgres_db
+    ports:
+      - "5432:5433"
