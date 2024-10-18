@@ -35,8 +35,8 @@ La API de Dragon Ball Z está diseñada para gestionar personajes y sus respecti
 
 ## Capturas de Pantalla
 
-![Interfaz Principal](./src/main/resources/images/6.png)
-![Interacción con el Asistente](./src/main/resources/images/4.png)
+![Json](./src/main/resources/images/6.png)
+![Tipos de datos](./src/main/resources/images/4.png)
 
 ## Instalación
 
